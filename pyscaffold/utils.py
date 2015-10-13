@@ -201,11 +201,11 @@ def prepare_namespace(namespace_str):
 
 def check_setuptools_version():
     """
-    Checks that setuptools has all necessary capabilities for setuptools_scm
+    Checks that setuptools and distribute are new enough for setuptools_scm
     """
     try:
         from pkg_resources import parse_version, SetuptoolsVersion  # noqa
     except ImportError:
         raise RuntimeError(
-            "ERROR: Your setuptools version is too old (<12).\n"
+            "ERROR: Either your setuptools (<12) or distribute version (<0.7.3) is too old.\n"
             "Use `pip install -U setuptools` to upgrade.")
